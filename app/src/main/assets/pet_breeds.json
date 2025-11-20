@@ -1,0 +1,93 @@
+[
+  {
+    "id": 9,
+    "name": "Свой вариант",
+    "type": "cat",
+    "imageUrl": "https://thumbs.dreamstime.com/b/счаст-ивый-крупный-п-ан-собаки-и-кошки-совместно-58727807.jpg"
+  },
+  {
+    "id": 1,
+    "name": "Шотландская вислоухая",
+    "type": "cat",
+    "imageUrl": "https://heypati.com.tr/wp-content/uploads/2021/01/stosih-fold-kedisi-ozellikleri.png"
+  },
+  {
+    "id": 2,
+    "name": "Британская короткошерстная",
+    "type": "cat",
+    "imageUrl": "https://avatars.dzeninfra.ru/get-zen_doc/1537151/pub_5d81583d98fe7900ac28a4d4_5d81695fe6e8ef00adeb82e4/scale_1200"
+  },
+  {
+    "id": 3,
+    "name": "Мейн-кун",
+    "type": "cat",
+    "imageUrl": "https://img.freepik.com/premium-photo/maine-coon-sitting-studio-shot_191971-3392.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Немецкая овчарка",
+    "type": "dog",
+    "imageUrl": "https://cdn1.ozone.ru/s3/multimedia-3/6236891523.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Лабрадор",
+    "type": "dog",
+    "imageUrl": "https://thumbs.dreamstime.com/b/черная-собака-labrador-изо-ированная-на-бе-изне-37610176.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Питбуль",
+    "type": "dog",
+    "imageUrl": "https://i.pinimg.com/736x/f7/5e/2f/f75e2fa860ace3db6e835258f435346f.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Померанский шпиц",
+    "type": "dog",
+    "imageUrl": "https://i.pinimg.com/originals/07/94/2a/07942a8d99d4ff129299c9781f1915ff.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Персидская кошка",
+    "type": "cat",
+    "imageUrl": "https://media.istockphoto.com/id/450125535/ru/фото/персидская-кошка-3-лет-перед-белый-фон.jpg?s=612x612&w=0&k=20&c=DC8wFd6Bw-u37GWDSVzuennKLSui9xfnN7pogAHCQGk="
+  },
+
+  {
+    "id": 10,
+    "name": "Сибирская кошка",
+    "type": "cat",
+    "imageUrl": "https://avatars.mds.yandex.net/i?id=6b5e24b5650f7ef961cab3ee3a3ac898a3b87c05-3829399-images-thumbs&n=13"
+  },
+  {
+    "id": 11,
+    "name": "Бенгальская кошка",
+    "type": "cat",
+    "imageUrl": "https://img.freepik.com/premium-photo/bengal-cat-front-white-background_87557-22325.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Рэгдолл",
+    "type": "cat",
+    "imageUrl": "https://i.pinimg.com/736x/2e/0d/17/2e0d17a525189c88643f2a6ab003d0a5.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Хаски",
+    "type": "dog",
+    "imageUrl": "https://static.tildacdn.com/tild3364-3536-4838-a531-626366383831/i-removebg-preview_1.png"
+  },
+  {
+    "id": 14,
+    "name": "Йоркширский терьер",
+    "type": "dog",
+    "imageUrl": "https://avatars.mds.yandex.net/i?id=af5d2c7a87133af663e8f0200bb63547_l-5161002-images-thumbs&n=13"
+  },
+  {
+    "id": 15,
+    "name": "Доберман",
+    "type": "dog",
+    "imageUrl": "https://as1.ftcdn.net/v2/jpg/02/44/00/42/1000_F_244004233_PdUhgFUIjwg9IoJX0F7vfi9SktWV8qKO.jpg"
+  }
+]

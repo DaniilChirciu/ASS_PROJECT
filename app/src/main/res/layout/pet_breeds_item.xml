@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sinaseyfi.advancedcardview.AdvancedCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_140sdp"
+    android:id="@+id/cardView"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:background_Type="fill_stroke"
+    app:background_Color="@color/white"
+    app:cornerRadius="@dimen/_11sdp"
+    app:stroke_Width="@dimen/_2sdp"
+    app:shadow0_Outer_Color="#33000000"
+    app:shadow0_Outer_Blur="@dimen/_3sdp"
+    app:stroke_ColorType="solid"
+    app:stroke_Color="@color/white"
+    android:layout_height="@dimen/_140sdp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/pet_breeds"
+            style="@style/Text_Bold"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:text="Питбуль"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:maxLines="2"
+            android:autoSizeTextType="uniform"
+            android:textColor="@color/textPrime"
+            android:autoSizeMaxTextSize="@dimen/_12ssp"
+            android:autoSizeMinTextSize="@dimen/_8ssp"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+
+        <ru.app.pawbuddy.TopCropImageView
+            android:id="@+id/pet_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/pet_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pet_breeds"/>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</com.sinaseyfi.advancedcardview.AdvancedCardView>

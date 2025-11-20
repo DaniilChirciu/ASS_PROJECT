@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.sinaseyfi.advancedcardview.AdvancedCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_130sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cornerRadius="@dimen/_18sdp"
+    android:id="@+id/weightRootCard"
+    app:shadow0_Outer_Color="#33808B9A"
+    app:shadow0_Outer_Blur="@dimen/_4sdp"
+    app:background_Type="fill_stroke"
+    app:background_Color="@color/white"
+    app:stroke_Color="@color/white"
+    app:stroke_Width="@dimen/_2sdp"
+    android:layout_height="@dimen/_160sdp">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/iconBackgroundCard"
+            android:layout_width="@dimen/_40sdp"
+            app:cardCornerRadius="@dimen/_360sdp"
+            app:cardBackgroundColor="@color/gray"
+            android:layout_height="@dimen/_40sdp">
+
+            <ImageView
+                android:id="@+id/weightIcon"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_6sdp"
+                android:layout_height="match_parent"
+                app:tint="@color/textSecond"
+                android:src="@drawable/ic_scale"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    <TextView
+        style="@style/Text_Regular"
+        android:textColor="@color/textSecond"
+        android:id="@+id/weightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:maxLines="2"
+        android:autoSizeTextType="uniform"
+        android:text="Средний\n14-25кг"
+        android:textSize="@dimen/_12ssp"
+        android:layout_marginTop="@dimen/_6sdp"/>
+</LinearLayout>
+
+</com.sinaseyfi.advancedcardview.AdvancedCardView>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PawBuddy"
+        tools:targetApi="31">
+        <activity
+            android:name=".presentation.feature.report.ui.AddReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.report.ui.ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.health.ui.AddVaccinesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.health.ui.VaccinesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.health.ui.PetInsuranceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.health.ui.PetHealthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.pet.ui.AddPetActivityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.pet.ui.PetWalkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.nutrition.ui.AddNutritionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.nutrition.ui.NutritionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.user.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.common.ui.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.pet.ui.AddPetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.main.ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.feature.main.ui.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

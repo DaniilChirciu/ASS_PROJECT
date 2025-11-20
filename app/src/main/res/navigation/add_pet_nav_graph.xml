@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/addPetNavGraph"
+    app:startDestination="@id/breedFragment">
+
+    <!-- Фрагмент ШАГ 1: Порода -->
+    <fragment
+        android:id="@+id/breedFragment"
+        android:name="ru.app.pawbuddy.presentation.feature.pet.ui.BreedFragment"
+        android:label="BreedFragment">
+
+        <!-- Действие: переход из BreedFragment в NameFragment -->
+        <action
+            android:id="@+id/action_breedFragment_to_nameFragment"
+            app:destination="@id/nameFragment"/>
+    </fragment>
+
+    <!-- Фрагмент ШАГ 2: Имя питомца -->
+    <fragment
+        android:id="@+id/nameFragment"
+        android:name="ru.app.pawbuddy.presentation.feature.pet.ui.NameFragment"
+        android:label="NameFragment">
+
+
+
+        <action
+            android:id="@+id/action_nameFragment_to_sizeFragment"
+            app:destination="@id/sizeFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/sizeFragment"
+        android:name="ru.app.pawbuddy.presentation.feature.pet.ui.SizeFragment"
+        android:label="SizeFragment">
+
+        <action
+            android:id="@+id/action_sizeFragment_to_weightFragment"
+            app:destination="@id/weightFragment"/>
+
+    </fragment>
+
+
+
+
+    <fragment
+        android:id="@+id/weightFragment"
+        android:name="ru.app.pawbuddy.presentation.feature.pet.ui.WeightFragment"
+        android:label="WeightFragment"/>
+
+
+</navigation>

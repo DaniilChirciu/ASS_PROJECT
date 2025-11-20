@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PawBuddy" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/mainWhite</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryDark">@color/main</item>
+        <item name="colorAccent">@color/main</item>
+    </style>
+
+    <style name="Theme.PawBuddy" parent="Base.Theme.PawBuddy" />
+
+    <style name="Text_Bold" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/notosans_bold</item>
+    </style>
+
+    <style name="Text_Regular" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/notosans_regular</item>
+    </style>
+
+
+
+
+</resources>

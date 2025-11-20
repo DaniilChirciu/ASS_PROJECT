@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/mainWhite">
+
+    <!-- Заголовок "Активных питомцев" -->
+    <TextView
+        android:id="@+id/titleActivePets"
+        style="@style/Text_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_21sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:text="Активных питомцев"
+        android:textColor="@color/textPrime"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Карточка со счётчиком -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPetsCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:backgroundTint="@color/grey"
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/titleActivePets"
+        app:layout_constraintStart_toEndOf="@id/titleActivePets"
+        app:layout_constraintTop_toTopOf="@id/titleActivePets">
+
+        <TextView
+            android:id="@+id/pets_count"
+            style="@style/Text_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:text="0"
+            android:textColor="@color/textPrime"
+            android:textSize="@dimen/_12ssp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Горизонтальный список питомцев -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/petsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        tools:listitem="@layout/my_pet_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/titleActivePets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/nutritionBtn"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_125sdp"
+        android:layout_margin="@dimen/_13sdp"
+        android:elevation="@dimen/_2sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petsRecyclerView" >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_minus18sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/nutrition_ic"/>
+
+            <TextView
+                style="@style/Text_Regular"
+                android:textStyle="bold"
+                android:textColor="@color/textPrime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginStart="@dimen/_13sdp"
+                android:text="Питание"
+                android:textSize="@dimen/_13ssp"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/healthBtn"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_125sdp"
+        android:layout_margin="@dimen/_13sdp"
+        android:elevation="@dimen/_2sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/petsRecyclerView" >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_minus18sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/health_ic"/>
+
+            <TextView
+                style="@style/Text_Regular"
+                android:textStyle="bold"
+                android:textColor="@color/textPrime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginStart="@dimen/_13sdp"
+                android:text="Здоровье"
+                android:textSize="@dimen/_13ssp"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/activityBtn"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_width="0dp"
+
+        android:layout_height="@dimen/_125sdp"
+        android:layout_margin="@dimen/_13sdp"
+        android:elevation="@dimen/_2sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nutritionBtn" >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_minus18sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/activity_ic"/>
+
+
+            <TextView
+                style="@style/Text_Regular"
+                android:textStyle="bold"
+                android:textColor="@color/textPrime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginStart="@dimen/_13sdp"
+                android:text="Активность"
+                android:textSize="@dimen/_13ssp"/>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sendReportBtn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_125sdp"
+        android:layout_margin="@dimen/_13sdp"
+        android:clickable="true"
+
+        android:elevation="@dimen/_2sdp"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/nutritionBtn">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_minus18sdp"
+                android:src="@drawable/send_report_ic" />
+
+
+            <TextView
+                style="@style/Text_Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:text="Отчёты"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:gravity="center|left"
+                android:autoSizeTextType="uniform"
+                android:maxLines="1"
+                android:textColor="@color/textPrime"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

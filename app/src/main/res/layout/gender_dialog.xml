@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_picker"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/Text_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:text="Выберете пол питомца"
+        android:layout_marginStart="@dimen/_18sdp"
+
+        android:textColor="@color/textPrime"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.sinaseyfi.advancedcardview.AdvancedCardView
+        android:id="@+id/gender_female_btn"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginEnd="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:layout_marginBottom="@dimen/_82sdp"
+        app:background_Color="#F7D8F4"
+        app:background_Type="fill_stroke"
+        app:cornerRadius="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:shadow0_Outer_Blur="@dimen/_2sdp"
+        app:shadow0_Outer_Color="#33000000"
+        app:stroke_Color="#F4D8F7"
+        app:stroke_ColorType="solid"
+        app:stroke_Type="solid"
+        app:stroke_Width="@dimen/_1sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/female_ic"
+            app:tint="#FF45F9" />
+
+
+    </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <com.sinaseyfi.advancedcardview.AdvancedCardView
+        android:id="@+id/gender_male_btn"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginEnd="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:layout_marginBottom="@dimen/_82sdp"
+        app:background_Color="#D8DFF7"
+        app:background_Type="fill_stroke"
+        app:cornerRadius="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:shadow0_Outer_Blur="@dimen/_2sdp"
+        app:shadow0_Outer_Color="#33000000"
+        app:stroke_Color="#D8DCF7"
+        app:stroke_ColorType="solid"
+        app:stroke_Type="solid"
+        app:stroke_Width="@dimen/_1sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/male_ic"
+            app:tint="#4564FF" />
+
+
+    </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+    <TextView
+        style="@style/Text_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Женский"
+        android:textColor="@color/textPrime"
+        android:textSize="@dimen/_12ssp"
+
+        app:layout_constraintEnd_toEndOf="@+id/gender_female_btn"
+        app:layout_constraintStart_toStartOf="@+id/gender_female_btn"
+        app:layout_constraintTop_toBottomOf="@+id/gender_female_btn" />
+
+
+    <TextView
+        style="@style/Text_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Мужской"
+        android:textColor="@color/textPrime"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="@+id/gender_male_btn"
+        app:layout_constraintStart_toStartOf="@+id/gender_male_btn"
+        app:layout_constraintTop_toBottomOf="@+id/gender_male_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
