@@ -1,6 +1,7 @@
 package ru.app.pawbuddy.presentation.feature.pet.viewmodel
 
 import android.graphics.Bitmap
+import android.util.Base64
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,6 +12,7 @@ import ru.app.pawbuddy.R
 import ru.app.pawbuddy.domain.model.PetBreed
 import ru.app.pawbuddy.domain.model.PetData
 import ru.app.pawbuddy.domain.usecase.AddPetUseCase
+import java.io.ByteArrayOutputStream
 import javax.inject.Inject
 
 @HiltViewModel
@@ -72,12 +74,16 @@ class AddPetViewModel @Inject constructor(
         val name = _petNameLiveData.value ?: return
         val size = _petSizeLiveData.value ?: return
         val weight = _petWeightLiveData.value?.toDouble() ?: return
+        val bitmap = _petImageLiveData.value
+        val imageBase64 = bitmap?.let { bitmapToBase64(it) } ?: ""
 
         val pet = PetData(
-            name = name,
-            breed = breed.name,
-            size = size,
-            weight = weight
+            petId = "", // Firebase создаст новый ключ
+            petName = name,
+            breedName = breed.name,
+            petImageBase64 = imageBase64,
+            petSize = size,
+            petWeight = weight.toString()
         )
 
         viewModelScope.launch {
@@ -91,8 +97,11 @@ class AddPetViewModel @Inject constructor(
         }
     }
 
-    private fun PetData(name: String, breed: String, size: String, weight: Double) {
-
+    // === Вспомогательная функция для конвертации Bitmap в Base64 ===
+    private fun bitmapToBase64(bitmap: Bitmap): String {
+        val outputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+        return Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT)
     }
 }
 

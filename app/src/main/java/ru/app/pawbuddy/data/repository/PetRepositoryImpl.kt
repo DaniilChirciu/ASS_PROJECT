@@ -5,13 +5,12 @@ import kotlinx.coroutines.flow.map
 import ru.app.pawbuddy.data.remote.RemotePetDataSource
 import ru.app.pawbuddy.domain.model.PetData
 import ru.app.pawbuddy.domain.repository.PetRepository
-import kotlin.Exception
 
 class PetRepositoryImpl(
     private val remote: RemotePetDataSource
 ) : PetRepository {
 
-    override suspend fun addPet(pet: PetData) = runCatching {
+    override suspend fun addPet(pet: Unit) = runCatching {
         remote.addPet(pet)
     }
 
