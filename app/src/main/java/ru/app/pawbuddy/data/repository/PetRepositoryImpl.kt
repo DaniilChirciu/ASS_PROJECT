@@ -10,7 +10,7 @@ class PetRepositoryImpl(
     private val remote: RemotePetDataSource
 ) : PetRepository {
 
-    override suspend fun addPet(pet: Unit) = runCatching {
+    override suspend fun addPet(pet: PetData) = runCatching {
         remote.addPet(pet)
     }
 
