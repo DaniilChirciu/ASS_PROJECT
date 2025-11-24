@@ -47,4 +47,3 @@ data class PetData(
     val petPassportImage: String? = null, // Фото паспорта
     val petCardImage: String? = null // Фото карточки
 )
-
