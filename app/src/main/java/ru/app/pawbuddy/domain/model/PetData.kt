@@ -33,7 +33,7 @@ data class PetData(
     val breedName: String,
     val petName: String,
     val petSize: String,
-    val petWeight: Float,
+    val petWeight: String,
     val petImageBase64: String?,
     val petBirthday: String? = null,
     val petOld: String? = null,
@@ -45,5 +45,10 @@ data class PetData(
     val reports: List<PetReport> = emptyList(),
     val petInsuranceImage: String? = null, // Фото страховки
     val petPassportImage: String? = null, // Фото паспорта
-    val petCardImage: String? = null // Фото карточки
+    val petCardImage: String? = null, // Фото карточки
+    val id: String = "",
+    val name: String = "",
+    val breed: String = "",
+    val weight: Double = 0.0,
+    val size: String = ""
 )

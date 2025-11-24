@@ -21,7 +21,7 @@ class RemotePetDataSource(
     suspend fun addPet(pet: PetData) {
         val id = pet.id.ifEmpty { petsRef.push().key ?: throw IllegalStateException("no key") }
         val map = pet.toMap()
-        petsRef.child(id).setValue(map).await()
+        petsRef.child(id.toString()).setValue(map).await()
     }
 
     suspend fun updatePet(pet: PetData) {
@@ -33,7 +33,7 @@ class RemotePetDataSource(
         petsRef.child(id).removeValue().await()
     }
 
-    suspend fun getPetOnce(id: String): PetData? {
+    suspend fun getPetOnce(id: String): Unit? {
         val snapshot = petsRef.child(id).get().await()
         return snapshot.toPetData()
     }
@@ -55,13 +55,17 @@ class RemotePetDataSource(
     }
 
     // Simple mapper helpers (adjust to your PetData fields)
-    private fun DataSnapshot.toPetData(): PetData? {
+    private fun DataSnapshot.toPetData(): Unit? {
         val id = key ?: return null
         val name = child("name").getValue(String::class.java) ?: ""
         val breed = child("breed").getValue(String::class.java) ?: ""
         val weight = child("weight").getValue(Double::class.java) ?: 0.0
         val size = child("size").getValue(String::class.java) ?: ""
         return PetData(id = id, name = name, breed = breed, weight = weight, size = size)
+    }
+
+    private fun PetData(id: String, name: String, breed: String, weight: Double, size: String) {
+
     }
 
     private fun PetData.toMap(): Map<String, Any?> = mapOf(
@@ -72,6 +76,6 @@ class RemotePetDataSource(
     )
 }
 
-private fun Any.ifEmpty(function: () -> Nothing): Any {
+private fun Any.ifEmpty(function: () -> String) {
 
 }

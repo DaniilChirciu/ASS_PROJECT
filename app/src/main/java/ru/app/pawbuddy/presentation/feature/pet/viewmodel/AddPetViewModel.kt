@@ -1,14 +1,24 @@
 package ru.app.pawbuddy.presentation.feature.pet.viewmodel
 
 import android.graphics.Bitmap
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import ru.app.pawbuddy.R
 import ru.app.pawbuddy.domain.model.PetBreed
+import ru.app.pawbuddy.domain.model.PetData
+import ru.app.pawbuddy.domain.usecase.AddPetUseCase
+import javax.inject.Inject
 
-class AddPetViewModel : ViewModel() {
+@HiltViewModel
+class AddPetViewModel @Inject constructor(
+    private val addPetUseCase: AddPetUseCase
+) : ViewModel() {
 
+    // === LiveData для UI ===
     private val _selectedBreedLiveData = MutableLiveData<PetBreed?>()
     val selectedBreedLiveData: LiveData<PetBreed?> = _selectedBreedLiveData
 
@@ -24,33 +34,23 @@ class AddPetViewModel : ViewModel() {
     private val _petWeightLiveData = MutableLiveData<Float?>()
     val petWeightLiveData: LiveData<Float?> = _petWeightLiveData
 
-    private val _isSizeStepReady = MutableLiveData<Boolean>(false)
+    private val _isSizeStepReady = MutableLiveData(false)
     val isSizeStepReady: LiveData<Boolean> = _isSizeStepReady
 
-    fun setSelectedBreed(breed: PetBreed) {
-        _selectedBreedLiveData.value = breed
-    }
+    // === StateFlow для добавления питомца ===
+    private val _addPetState = MutableStateFlow<AddPetState>(AddPetState.Idle)
+    val addPetState: StateFlow<AddPetState> = _addPetState.asStateFlow()
 
-    fun setPetName(name: String) {
-        _petNameLiveData.value = name
-    }
-
-    fun setPetImage(image: Bitmap) {
-        _petImageLiveData.value = image
-    }
-
+    // === UI setters ===
+    fun setSelectedBreed(breed: PetBreed) { _selectedBreedLiveData.value = breed }
+    fun setPetName(name: String) { _petNameLiveData.value = name }
+    fun setPetImage(image: Bitmap) { _petImageLiveData.value = image }
     fun setPetSize(size: String) {
         _petSizeLiveData.value = size
         _isSizeStepReady.value = true
     }
-
-    fun setPetWeight(weight: Float) {
-        _petWeightLiveData.value = weight
-    }
-
-    fun setSizeStepReady(isReady: Boolean) {
-        _isSizeStepReady.value = isReady
-    }
+    fun setPetWeight(weight: Float) { _petWeightLiveData.value = weight }
+    fun setSizeStepReady(isReady: Boolean) { _isSizeStepReady.value = isReady }
 
     fun isContinueEnabledForStep(stepId: Int): Boolean {
         return when (stepId) {
@@ -60,10 +60,46 @@ class AddPetViewModel : ViewModel() {
                 val isImageSelected = _petImageLiveData.value != null
                 isNameNotEmpty && isImageSelected
             }
-
             R.id.sizeFragment -> _petSizeLiveData.value != null
             R.id.weightFragment -> _petWeightLiveData.value != null
             else -> false
         }
     }
+
+    // === Добавление питомца ===
+    fun addPet() {
+        val breed = _selectedBreedLiveData.value ?: return
+        val name = _petNameLiveData.value ?: return
+        val size = _petSizeLiveData.value ?: return
+        val weight = _petWeightLiveData.value?.toDouble() ?: return
+
+        val pet = PetData(
+            name = name,
+            breed = breed.name,
+            size = size,
+            weight = weight
+        )
+
+        viewModelScope.launch {
+            _addPetState.value = AddPetState.Loading
+            try {
+                addPetUseCase(pet)
+                _addPetState.value = AddPetState.Success
+            } catch (e: Exception) {
+                _addPetState.value = AddPetState.Error(e.message ?: "Unknown error")
+            }
+        }
+    }
+
+    private fun PetData(name: String, breed: String, size: String, weight: Double) {
+
+    }
+}
+
+// === State для добавления питомца ===
+sealed class AddPetState {
+    object Idle : AddPetState()
+    object Loading : AddPetState()
+    object Success : AddPetState()
+    data class Error(val message: String) : AddPetState()
 }
